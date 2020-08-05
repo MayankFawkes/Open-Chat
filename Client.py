@@ -65,12 +65,14 @@ class client:
 
 	def _process(self):
 		while True:
-			if window.state() is not "normal":break
+			if window.state() != "normal":break
 			if self.issockconnected:
+				print("here11")
 				try:
 					triple = select([self.sock], [], [])[0]
 					message=triple[0].recv(2048)
 					jj=self._decode_json(message)
+					print(jj)
 					who=jj["name"]
 					mes=self._decrypt(jj["message"]).decode()
 					self._print_message(who,mes)
@@ -79,7 +81,6 @@ class client:
 					continue
 			else:
 				sleep(0.5)
-
 	def _send_message_to_server(self,message):
 		message=message.encode()
 		message=self._encrypt(message)
@@ -88,7 +89,7 @@ class client:
 
 	def _print_message(self,who,message):
 		txt.config(state="normal")
-		message=f'[{who}] {message}\n'
+		message=f'[{self._get_time()}]<{who}> {message}\n'
 		txt.insert(END,message)
 		txt.config(state=DISABLED)
 		txt.see("end")
