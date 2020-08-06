@@ -67,7 +67,6 @@ class client:
 		while True:
 			if window.state() != "normal":break
 			if self.issockconnected:
-				print("here11")
 				try:
 					triple = select([self.sock], [], [])[0]
 					message=triple[0].recv(2048)
@@ -76,7 +75,6 @@ class client:
 					who=jj["name"]
 					mes=self._decrypt(jj["message"]).decode()
 					self._print_message(who,mes)
-					print(mes)
 				except:
 					continue
 			else:
