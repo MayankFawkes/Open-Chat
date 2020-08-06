@@ -20,7 +20,8 @@ class server:
 	def _connection(self):
 		self.sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.sock.bind(self.host)
-		if self.debug:self._log(f'[{_get_time()}] Server start on {host}')
+		print(f'[{_get_time()}] Server start on {":".join(self.host)}')
+		if self.debug:self._log(f'[{self._get_time()}] Server start on {host}')
 		self.sock.listen(5)
 		Thread(target=self._accept).start()
 		# self._accept()
@@ -29,7 +30,7 @@ class server:
 		dt = datetime.now().strftime("%I:%M:%S %p")
 		return dt
 	def _accept(self):
-		if self.debug:self._log(f'[{_get_time()}] Ready to accept connections')
+		if self.debug:self._log(f'[{self._get_time()}] Ready to accept connections')
 		while True:
 			try:
 				conn,addr=self.sock.accept()
@@ -37,11 +38,11 @@ class server:
 				self.all.append([conn,addr,check])
 				self.connections.append(conn)
 				print("Connected {}:{}".format(*addr))
-				if self.debug:self._log(f'[{_get_time()}]'+"Connected {}:{}".format(*addr))
+				if self.debug:self._log(f'[{self._get_time()}]'+"Connected {}:{}".format(*addr))
 			except:continue
 
 	def _proc(self):
-		if self.debug:self._log(f'[{_get_time()}] Ready to accept data')
+		if self.debug:self._log(f'[{self._get_time()}] Ready to accept data')
 		while True:
 			if len(self.connections):self._process()
 			else:sleep(0.1)
@@ -75,7 +76,7 @@ class server:
 			if conn is bunch[0]:
 				del self.all[no]
 				print("Disconnected {}:{}".format(*bunch[1]))
-				if self.debug:self._log(f'[{_get_time()}]'+"Connected {}:{}".format(*bunch[1]))
+				if self.debug:self._log(f'[{self._get_time()}]'+"Connected {}:{}".format(*bunch[1]))
 
 		self.connections.remove(conn)
 
