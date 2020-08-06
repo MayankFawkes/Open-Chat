@@ -7,7 +7,6 @@ from cryptography.fernet import Fernet
 from base64 import b64decode,b64encode
 from threading import Thread
 
-
 class server:
 	all=[]
 	connections=[]
