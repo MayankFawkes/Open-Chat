@@ -30,6 +30,7 @@ class client:
 		Thread(target=self._process).start()
 	def _change_title(self,new_title,ip=False):
 		window.title(f'{title} {new_title} {":".join(self.ips)}')
+					 
 	def _connect_socket(self,data):
 		self.sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.sock.connect((self.ips[0],int(self.ips[1])))
