@@ -36,7 +36,7 @@ class client:
 		self.sock.send(dumps(data).encode("ascii"))
 		self.issockconnected=True
 		self._change_title("Connected",True)
-		if self.debug:self._log(f'[{_get_time()}] Connection is connected')
+		if self.debug:self._log(f'[{self._get_time()}] Connection is connected')
 
 
 	def _decrypt(self,message):
@@ -51,7 +51,7 @@ class client:
 		self.sock.close()
 		self.issockconnected=False
 		self._change_title("Disconnected")
-		if self.debug:self._log(f'[{_get_time()}] Connection is disconnected')
+		if self.debug:self._log(f'[{self._get_time()}] Connection is disconnected')
 
 	def _log(self,what):
 		with open("all.log") as f:
@@ -137,7 +137,7 @@ message = Entry(BF,width="70",text=input_user)
 message.grid(row=1,column=0,sticky=SW,padx=10,pady=15)
 message.bind("<Return>", Client._Get_send)
 
-but = Button(BF,text="send",width=20,command= Client._Get_send)
+but = Button(BF,text="send",width=20,command=Client._Get_send)
 but.grid(row=1,column=1,sticky=SE,padx=10,pady=10)
 
 window.mainloop()
