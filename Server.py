@@ -20,7 +20,7 @@ class server:
 	def _connection(self):
 		self.sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 		self.sock.bind(self.host)
-		print(f'[{_get_time()}] Server start on {":".join(self.host)}')
+		print(f'[{self._get_time()}] Server start on {":".join(self.host)}')
 		if self.debug:self._log(f'[{self._get_time()}] Server start on {host}')
 		self.sock.listen(5)
 		Thread(target=self._accept).start()
