@@ -26,6 +26,7 @@ class server:
 		Thread(target=self._accept).start()
 		# self._accept()
 		self._proc()
+
 	def _get_time(self):
 		dt = datetime.now().strftime("%I:%M:%S %p")
 		return dt
