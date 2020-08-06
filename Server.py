@@ -89,6 +89,6 @@ class server:
 	def _encrypt(self,message,key):
 		key=b64encode(f'{key:<32}'[:32].encode())
 		return Fernet(key).encrypt(message).decode()
-
+    
 if __name__ == '__main__':
 	server()
