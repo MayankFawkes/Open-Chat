@@ -137,7 +137,7 @@ message = Entry(BF,width="70",text=input_user)
 message.grid(row=1,column=0,sticky=SW,padx=10,pady=15)
 message.bind("<Return>", Client._Get_send)
 
-but = Button(BF,text="send",width=20,command=Client._Get_send)
+but = Button(BF,text="send",width=20,command= Client._Get_send)
 but.grid(row=1,column=1,sticky=SE,padx=10,pady=10)
 
 window.mainloop()
