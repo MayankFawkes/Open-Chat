@@ -57,6 +57,7 @@ class client:
 		with open("all.log") as f:
 			f.write(f'{what}\n')
 			f.close()
+
 	def _get_time(self):
 		dt = datetime.now().strftime("%I:%M:%S %p")
 		return dt
