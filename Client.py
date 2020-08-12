@@ -114,7 +114,6 @@ class client:
 			rate=self.rate, output=True, frames_per_buffer=self.chunk_size)
 
 	def _plays(self,voice):
-		sleep(3)
 		self.playing_stream.write(voice)
 
 	def _log(self,what):
