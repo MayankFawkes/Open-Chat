@@ -1,4 +1,4 @@
-# Open-Chat-GUI
+# Open-Chat-GUI | FREE TO USE
 <p align="center">
   <img src="https://github.com/MayankFawkes/Open-Chat/raw/master/header.png">
 </p>
